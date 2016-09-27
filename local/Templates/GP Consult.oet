@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>9c09f7fd-da1d-42d9-8117-227b184734a6</id>
+  <name>GP Consult</name>
+  <description>
+    <original_author>
+      <item>
+        <key>Name</key>
+        <value>Dileep</value>
+      </item>
+      <item>
+        <key>Email</key>
+        <value>dileep@healthelife.in</value>
+      </item>
+    </original_author>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Simple GP consultation</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter" name="Consultation details">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Story/History" path="/content">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.issue.v1" concept_name="Issue presented by a person" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.symptom_sign.v1" concept_name="Symptom/Sign" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]">
+        <Rule path="/items[at0035]" max="0" />
+        <Rule path="/items[at0164]" max="0" />
+        <Rule path="/items[at0021]">
+          <constraint xsi:type="multipleConstraint">
+            <includedTypes>Coded_text</includedTypes>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0003]" max="0" />
+        <Rule path="/items[at0165]" max="0" />
+        <Rule path="/items[at0155]" max="0" />
+        <Rule path="/items[at0037]" max="0" />
+      </Items>
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/Diagnosis" path="/content">
+      <Rule path="/data[at0001]/items[at0005]">
+        <constraint xsi:type="multipleConstraint">
+          <includedTypes>Coded_text</includedTypes>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0072]" max="0" />
+      <Rule path="/data[at0001]/items[at0073]">
+        <constraint xsi:type="multipleConstraint">
+          <includedTypes>Coded_text</includedTypes>
+        </constraint>
+      </Rule>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1" concept_name="Anatomical location" path="/data[at0001]/items[at0039]">
+        <Rule path="/items[at0065]" max="0" />
+        <Rule path="/items[at0064]">
+          <constraint xsi:type="multipleConstraint">
+            <includedTypes>Coded_text</includedTypes>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0055]">
+          <constraint xsi:type="multipleConstraint">
+            <includedTypes>Coded_text</includedTypes>
+          </constraint>
+        </Rule>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.multimedia.v1" concept_name="Multimedia Resource" path="/items[at0054]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.problem_status.v0" concept_name="Problem/Diagnosis status" path="/data[at0001]/items[at0046]">
+        <Rule path="/items[at0073]" max="0" />
+        <Rule path="/items[at0082]" max="0" />
+      </Items>
+    </Content>
+    <Content xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-lab_test.v1" concept_name="Laboratory Test request" path="/content">
+      <Rule path="/activities[at0001]/description[at0009]/items[at0135]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0064]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+    </Content>
+    <Content xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-imaging_exam.v1" concept_name="Imaging Examination Request" path="/content">
+      <Rule path="/activities[at0001]/description[at0009]/items[at0135.1]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0064]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+    </Content>
+    <Content xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v0" concept_name="Medication order" path="/content">
+      <Rule path="/activities[at0001]/description[at0002]/items[at0047]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0056]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0062]/items[at0064]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0062]/items[at0162]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0062]/items[at0150]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0107]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0018]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0148]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0129]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0133]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0167]" max="0" />
+    </Content>
+    <Context />
+  </definition>
+</template>
