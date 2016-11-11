@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>b07529e0-2d25-491b-8c85-c94c6b2ebef9</id>
+  <name>GP Record History</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Record history during a GP encounter</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]/data[at0001]/items[at0002]">
+    <items>
+      <item>
+        <key>GUI Directives.Widget Type</key>
+        <value>Text Box</value>
+      </item>
+      <item>
+        <key>GUI Directives.Show Description</key>
+        <value>true</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.adhoc.v1]/items[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]/data[at0001]">
+    <items>
+      <item>
+        <key>GUI Directives.Widget Type</key>
+        <value>Combo Box</value>
+      </item>
+    </items>
+  </annotations>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter" name="Personal Summary">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.vaccination_summary.v1" concept_name="Vaccination Summary" path="/content" />
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_risk.v1" concept_name="Adverse reaction risk" path="/content">
+      <Rule path="/data[at0001]/items[at0002]">
+        <constraint xsi:type="textConstraint">
+          <termQueryId terminologyLang="en-GB" queryName=" " />
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0063]">
+        <constraint xsi:type="multipleConstraint">
+          <includedTypes>Coded_text</includedTypes>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0120]">
+        <constraint xsi:type="multipleConstraint">
+          <includedTypes>Coded_text</includedTypes>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0006]" max="0" />
+      <Rule path="/data[at0001]/items[at0009]" max="0" />
+      <Rule path="/protocol[at0042]/items[at0047]" max="0" />
+      <Rule path="/protocol[at0042]/items[at0044]" max="0" />
+      <Rule path="/protocol[at0042]/items[at0099]" max="0" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.infectious_disease_summary.v1" concept_name="Infectious Disease Summary" path="/content">
+      <Rule path="/data[at0001]/items[at0042]" max="0" />
+      <Rule path="/data[at0001]/items[at0014]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.substance_use-alcohol.v1" concept_name="Alcohol Consumption" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0018]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0012]">
+        <constraint xsi:type="multipleConstraint">
+          <includedTypes>Quantity</includedTypes>
+          <includedTypes>Count</includedTypes>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0012.2]" max="0" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.tobacco_smoking_summary.v0" concept_name="Tobacco smoking summary" path="/content">
+      <Rule path="/data[at0001]/items[at0043]" max="0" />
+      <Rule path="/data[at0001]/items[at0029]/items[at0053]" max="0" />
+      <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0030]">
+        <constraint xsi:type="multipleConstraint">
+          <includedTypes>Coded_text</includedTypes>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0065]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>[oz_av]/d</excludedUnits>
+          <excludedUnits>[oz_av]/wk</excludedUnits>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0029]/items[at0064]/items[at0087]" max="0" />
+      <Rule path="/data[at0001]/items[at0029]/items[at0017]" max="0" />
+      <Rule path="/data[at0001]/items[at0029]/items[at0069]" max="0" />
+      <Rule path="/data[at0001]/items[at0074]" max="0" />
+      <Rule path="/data[at0001]/items[at0019]" max="0" />
+      <Rule path="/protocol[at0021]/items[at0071]" max="0" />
+      <Rule path="/protocol[at0021]/items[at0085]" max="0" />
+      <Rule path="/protocol[at0021]/items[at0075]" max="0" />
+      <Rule path="/protocol[at0021]/items[at0076]" max="0" />
+      <Rule path="/protocol[at0021]/items[at0079]" max="0" />
+      <Rule path="/protocol[at0021]/items[at0072]" max="0" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.social_summary.v1" concept_name="Social summary" path="/content">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.employment.v0" concept_name="Employment" path="/data[at0001]/items[at0003]">
+        <Rule path="/items[at0002]/items[at0013]">
+          <constraint xsi:type="quantityConstraint">
+            <excludedUnits>1</excludedUnits>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0002]/items[at0009]">
+          <constraint xsi:type="durationConstraint">
+            <pattern>PYM</pattern>
+            <includesMaximum>false</includesMaximum>
+            <includesMinimum>false</includesMinimum>
+          </constraint>
+        </Rule>
+      </Items>
+    </Content>
+    <Context />
+  </definition>
+</template>

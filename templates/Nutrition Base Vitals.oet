@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>8aa69e7a-8c2a-4771-8da6-a81e581d26cf</id>
+  <name>Nutrition Base Vitals</name>
+  <description>
+    <original_author>
+      <item>
+        <key>Name</key>
+        <value>Dileep V S</value>
+      </item>
+      <item>
+        <key>Email</key>
+      </item>
+    </original_author>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Record the basic vitals used by nutrition coaches</purpose>
+      <keywords>
+        <item>nutrition</item>
+      </keywords>
+      <use />
+      <misuse>Not to be used for recoding of normal vitals in a clinical encounter</misuse>
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Body weight" path="/content">
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0024]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0009]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0025]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1" concept_name="Body mass index" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>lb/in2</excludedUnits>
+        </constraint>
+      </Rule>
+      <Rule path="/protocol[at0005]/items[at0006]">
+        <constraint xsi:type="textConstraint">
+          <excludedValues>local::at0007</excludedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/protocol[at0005]/items[at0010]" max="0" />
+      <Rule path="/protocol[at0005]/items[at0011]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_fat.v0" concept_name="body_fat" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.bmr.v0" concept_name="Bmr" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body-age.v0" concept_name="body-age" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_muscle.v0" concept_name="Body_muscle" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+    </Content>
+    <Context />
+  </definition>
+</template>
