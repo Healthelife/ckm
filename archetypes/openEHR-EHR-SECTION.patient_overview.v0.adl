@@ -1,0 +1,71 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.patient_overview.v0
+
+concept
+	[at0000]	-- Patient overview
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2016-11-18">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Classifying the current health condition of the person into sections">
+			use = <"classifying the persistent and curated health information of the person. Can include all the informatin that is relevant to the physician at any point of time.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"BA3CBD90B11C08A719923535AC23BE1E">
+	>
+
+definition
+	SECTION[at0000] matches {	-- Patient overview
+		items cardinality matches {1..*; unordered} matches {
+			SECTION[at0001] occurrences matches {0..1} matches {*}
+			SECTION[at0002] occurrences matches {0..1} matches {*}
+			SECTION[at0005] occurrences matches {0..1} matches {*}
+			SECTION[at0003] occurrences matches {0..1} matches {*}
+			SECTION[at0004] occurrences matches {0..1} matches {*}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Patient overview">
+					description = <"Overview of the overall clinical details of the person. Includes primarily the curated persistent data and past vitals records">
+				>
+				["at0001"] = <
+					text = <"Vitals">
+					description = <"Collection of all past vital recording information">
+				>
+				["at0002"] = <
+					text = <"Clinical summary">
+					description = <"Section to hold all the clinical summary data">
+				>
+				["at0003"] = <
+					text = <"Social summary">
+					description = <"Section to hold all the social summary data">
+				>
+				["at0004"] = <
+					text = <"Substance use">
+					description = <"Section to hold all the past and current substance use data">
+				>
+				["at0005"] = <
+					text = <"Test results">
+					description = <"*">
+				>
+			>
+		>
+	>

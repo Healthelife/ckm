@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>08a24641-4562-4c03-af25-4d895aa0cd1c</id>
+  <name>Health summary</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1" concept_name="Health summary">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.patient_overview.v0" concept_name="Patient overview" path="/content">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Body weight" path="/items[at0001]/items" />
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" path="/items[at0001]/items" />
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1" concept_name="Body mass index" path="/items[at0001]/items" />
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1" concept_name="Blood Pressure" path="/items[at0001]/items" />
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pulse.v1" concept_name="Pulse/Heart beat" path="/items[at0001]/items" />
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v1" concept_name="Body temperature" path="/items[at0001]/items" />
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/Diagnosis" path="/items[at0002]/items" />
+      <Item xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.procedure.v1" concept_name="Procedure" max="1" path="/items[at0002]/items" name="Procedure #1" />
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v0" concept_name="Medication order" max="1" path="/items[at0002]/items" name="Medication list" />
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_risk.v1" concept_name="Adverse reaction risk" path="/items[at0002]/items" />
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.vaccination_summary.v1" concept_name="Vaccination Summary" path="/items[at0002]/items" />
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.family_history.v2" concept_name="Family history" path="/items[at0003]/items" />
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.social_summary.v1" concept_name="Social summary" path="/items[at0003]/items" />
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.substance_use-tobacco-all_forms.v1" concept_name="Tobacco use of all types" path="/items[at0004]/items" />
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.substance_use-alcohol.v1" concept_name="Alcohol Consumption" path="/items[at0004]/items" />
+    </Content>
+    <Context />
+  </definition>
+</template>
