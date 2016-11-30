@@ -24,7 +24,7 @@ description
 	lifecycle_state = <"0">
 	other_contributors = <>
 	other_details = <
-		["MD5-CAM-1.0.1"] = <"700E11AA19AE7BD74ED576B05ED7C474">
+		["MD5-CAM-1.0.1"] = <"2BEF0AD09D2A489B4F27D23DC0E4A805">
 	>
 
 definition
@@ -38,15 +38,9 @@ definition
 								items cardinality matches {0..*; unordered} matches {
 									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Body Age
 										value matches {
-											C_DV_QUANTITY <
-												property = <[openehr::128]>
-												list = <
-													["1"] = <
-														units = <"a">
-														precision = <|0|>
-													>
-												>
-											>
+											DV_DURATION matches {
+												value matches {PYM}
+											}
 										}
 									}
 									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Comments

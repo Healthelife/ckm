@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>0170e63b-19a3-47df-86c0-dfa00279416d</id>
+  <name>GP orders</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter" name="Orders &amp; prescriptions">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.orders.v0" concept_name="Orders" path="/content">
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-lab_test.v1" concept_name="Laboratory Test request" path="/items[at0001]/items">
+        <Rule path="/activities[at0001]/description[at0009]/items[at0121]" name="Lab test" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0135]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0062]" name="Reason for test" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0065]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0040.1]" name="Preferred DateTime" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0144.1]" name="Latest DateTime" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0010]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0011]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0127]" max="0" />
+      </Item>
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-imaging_exam.v1" concept_name="Imaging Examination Request" path="/items[at0002]/items">
+        <Rule path="/activities[at0001]/description[at0009]/items[at0121.1]" name="Examination" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0135.1]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0065]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0144]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0010]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0011]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0127]" max="0" />
+      </Item>
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-procedure.v0" concept_name="Procedure request" path="/items[at0003]/items">
+        <Rule path="/activities[at0001]/description[at0009]/items[at0148.1]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0062.1]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0064.1]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0145]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0144]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0147]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0010]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0011]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0127]" max="0" />
+      </Item>
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v0" concept_name="Medication order" path="/items[at0004]/items">
+        <Rule path="/activities[at0001]/description[at0002]/items[at0009]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0047]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0109]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0055]" name="Frequency" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0056]/items[at0057]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0056]/items[at0058]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0056]/items[at0066]" name="Duration" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0062]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0044]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0105]" max="1" name="Instructions &amp; directions" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0107]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0018]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0148]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0113]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0129]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0133]" max="0" />
+        <Rule path="/activities[at0001]/description[at0002]/items[at0167]" max="0" />
+        <Rule path="/protocol[at0005]/items[at0004]" max="0" />
+        <Rule path="/protocol[at0005]/items[at0135]" max="0" />
+      </Item>
+    </Content>
+    <Context />
+  </definition>
+</template>

@@ -2,7 +2,7 @@ archetype (adl_version=1.4)
 	openEHR-EHR-SECTION.patient_overview.v0
 
 concept
-	[at0000]	-- Patient overview
+	[at0000]	-- Persistent health information
 language
 	original_language = <[ISO_639-1::en]>
 description
@@ -24,17 +24,16 @@ description
 	lifecycle_state = <"AuthorDraft">
 	other_contributors = <>
 	other_details = <
-		["MD5-CAM-1.0.1"] = <"BA3CBD90B11C08A719923535AC23BE1E">
+		["MD5-CAM-1.0.1"] = <"D9ECE52A4EAA1384CA8B300BA0D31553">
 	>
 
 definition
-	SECTION[at0000] matches {	-- Patient overview
+	SECTION[at0000] matches {	-- Persistent health information
 		items cardinality matches {1..*; unordered} matches {
-			SECTION[at0001] occurrences matches {0..1} matches {*}
 			SECTION[at0002] occurrences matches {0..1} matches {*}
-			SECTION[at0005] occurrences matches {0..1} matches {*}
 			SECTION[at0003] occurrences matches {0..1} matches {*}
 			SECTION[at0004] occurrences matches {0..1} matches {*}
+			SECTION[at0005] occurrences matches {0..1} matches {*}
 		}
 	}
 
@@ -43,12 +42,8 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Patient overview">
+					text = <"Persistent health information">
 					description = <"Overview of the overall clinical details of the person. Includes primarily the curated persistent data and past vitals records">
-				>
-				["at0001"] = <
-					text = <"Vitals">
-					description = <"Collection of all past vital recording information">
 				>
 				["at0002"] = <
 					text = <"Clinical summary">

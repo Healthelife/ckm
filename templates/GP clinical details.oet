@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>c2586973-0d2e-4a2c-b068-d1e4b04a259b</id>
+  <name>GP clinical details</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter" name="Clinical details">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Story/History" max="1" path="/content" name="Complaints">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="1" name="Overall description" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.issue.v1" concept_name="Issue presented by a person" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.symptom_sign.v1" concept_name="Symptom/Sign" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]">
+        <Rule path="/items[at0035]" max="0" />
+        <Rule path="/items[at0002]" max="0" />
+        <Rule path="/items[at0186]" max="0" />
+        <Rule path="/items[at0152]" max="0" />
+        <Rule path="/items[at0164]" max="0" />
+        <Rule path="/items[at0021]" max="0" />
+        <Rule path="/items[at0180]" max="1" />
+        <Rule path="/items[at0003]" max="0" />
+        <Rule path="/items[at0018]" max="0" />
+        <Rule path="/items[at0165]" max="0" />
+        <Rule path="/items[at0155]" max="0" />
+        <Rule path="/items[at0037]" max="0" />
+        <Rule path="/items[at0057]" max="0" />
+        <Rule path="/items[at0031]" max="0" />
+      </Items>
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/Diagnosis" path="/content">
+      <Rule path="/data[at0001]/items[at0009]" max="0" />
+      <Rule path="/data[at0001]/items[at0003]" max="0" />
+      <Rule path="/data[at0001]/items[at0072]" max="0" />
+      <Rule path="/data[at0001]/items[at0073]">
+        <constraint xsi:type="multipleConstraint">
+          <includedTypes>Coded_text</includedTypes>
+        </constraint>
+      </Rule>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.problem_status.v0" concept_name="Problem/Diagnosis status" path="/data[at0001]/items[at0046]">
+        <Rule path="/items[at0060]" max="0" />
+        <Rule path="/items[at0003]" max="0" />
+        <Rule path="/items[at0001]" max="0" />
+        <Rule path="/items[at0071]" max="0" />
+        <Rule path="/items[at0073]" max="0" />
+        <Rule path="/items[at0082]" max="0" />
+      </Items>
+    </Content>
+    <Context />
+  </definition>
+</template>

@@ -1,0 +1,66 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.orders.v0
+
+concept
+	[at0000]	-- Orders
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2016-11-23">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To arrange the different types of orders & requests made by physicians.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"FD1E4B46A2CF819F36F6495801E7641A">
+	>
+
+definition
+	SECTION[at0000] matches {	-- Orders
+		items cardinality matches {0..*; unordered} matches {
+			SECTION[at0001] occurrences matches {0..1} matches {*}
+			SECTION[at0002] occurrences matches {0..1} matches {*}
+			SECTION[at0003] occurrences matches {0..1} matches {*}
+			SECTION[at0004] occurrences matches {0..1} matches {*}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Orders">
+					description = <"Structure to organize the different orders made in CPOE">
+				>
+				["at0001"] = <
+					text = <"Laboratory">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Imaging">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Procedures">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Medication">
+					description = <"*">
+				>
+			>
+		>
+	>

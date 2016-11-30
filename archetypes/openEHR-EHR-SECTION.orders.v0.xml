@@ -9,10 +9,10 @@
   <description>
     <original_author id="name">Dileep V S</original_author>
     <original_author id="email">dileep@healthelife.in</original_author>
-    <original_author id="date">2016-11-18</original_author>
+    <original_author id="date">2016-11-23</original_author>
     <original_author id="organisation">Healthelife Ventures LLP</original_author>
-    <lifecycle_state>AuthorDraft</lifecycle_state>
-    <other_details id="MD5-CAM-1.0.1">D9ECE52A4EAA1384CA8B300BA0D31553</other_details>
+    <lifecycle_state>0</lifecycle_state>
+    <other_details id="MD5-CAM-1.0.1">FD1E4B46A2CF819F36F6495801E7641A</other_details>
     <details>
       <language>
         <terminology_id>
@@ -20,14 +20,14 @@
         </terminology_id>
         <code_string>en</code_string>
       </language>
-      <purpose>Classifying the current health condition of the person into sections</purpose>
-      <use>classifying the persistent and curated health information of the person. Can include all the informatin that is relevant to the physician at any point of time.</use>
+      <purpose>To arrange the different types of orders &amp; requests made by physicians.</purpose>
+      <use />
       <misuse />
       <copyright />
     </details>
   </description>
   <archetype_id>
-    <value>openEHR-EHR-SECTION.patient_overview.v0</value>
+    <value>openEHR-EHR-SECTION.orders.v0</value>
   </archetype_id>
   <adl_version>1.4</adl_version>
   <concept>at0000</concept>
@@ -52,6 +52,18 @@
         <lower>1</lower>
         <upper>1</upper>
       </existence>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>SECTION</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0001</node_id>
+      </children>
       <children xsi:type="C_COMPLEX_OBJECT">
         <rm_type_name>SECTION</rm_type_name>
         <occurrences>
@@ -88,18 +100,6 @@
         </occurrences>
         <node_id>at0004</node_id>
       </children>
-      <children xsi:type="C_COMPLEX_OBJECT">
-        <rm_type_name>SECTION</rm_type_name>
-        <occurrences>
-          <lower_included>true</lower_included>
-          <upper_included>true</upper_included>
-          <lower_unbounded>false</lower_unbounded>
-          <upper_unbounded>false</upper_unbounded>
-          <lower>0</lower>
-          <upper>1</upper>
-        </occurrences>
-        <node_id>at0005</node_id>
-      </children>
       <cardinality>
         <is_ordered>false</is_ordered>
         <is_unique>false</is_unique>
@@ -107,7 +107,7 @@
           <lower_included>true</lower_included>
           <lower_unbounded>false</lower_unbounded>
           <upper_unbounded>true</upper_unbounded>
-          <lower>1</lower>
+          <lower>0</lower>
         </interval>
       </cardinality>
     </attributes>
@@ -115,23 +115,23 @@
   <ontology>
     <term_definitions language="en">
       <items code="at0000">
-        <items id="text">Persistent health information</items>
-        <items id="description">Overview of the overall clinical details of the person. Includes primarily the curated persistent data and past vitals records</items>
+        <items id="text">Orders</items>
+        <items id="description">Structure to organize the different orders made in CPOE</items>
+      </items>
+      <items code="at0001">
+        <items id="text">Laboratory</items>
+        <items id="description">*</items>
       </items>
       <items code="at0002">
-        <items id="text">Clinical summary</items>
-        <items id="description">Section to hold all the clinical summary data</items>
+        <items id="text">Imaging</items>
+        <items id="description">*</items>
       </items>
       <items code="at0003">
-        <items id="text">Social summary</items>
-        <items id="description">Section to hold all the social summary data</items>
+        <items id="text">Procedures</items>
+        <items id="description">*</items>
       </items>
       <items code="at0004">
-        <items id="text">Substance use</items>
-        <items id="description">Section to hold all the past and current substance use data</items>
-      </items>
-      <items code="at0005">
-        <items id="text">Test results</items>
+        <items id="text">Medication</items>
         <items id="description">*</items>
       </items>
     </term_definitions>
