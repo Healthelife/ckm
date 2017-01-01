@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>fd4f88a2-cbfd-46d8-844c-534c2005095e</id>
+  <name>GP Capture Vitals</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Vitals captured in an OP encounter with a GP</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.vital_signs-gp.v1]/items[openEHR-EHR-OBSERVATION.body_temperature.v1]">
+    <items>
+      <item>
+        <key>GUI Directives.Group</key>
+        <value>Temperature</value>
+      </item>
+      <item>
+        <key>GUI Directives.Show Description</key>
+        <value>true</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/composer">
+    <items>
+      <item>
+        <key>GUI Directives.Widget Type</key>
+        <value>Text Box</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-SECTION.vital_signs-gp.v1]/items[openEHR-EHR-OBSERVATION.body_temperature.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+    <items>
+      <item>
+        <key>GUI Directives.Widget Type</key>
+        <value>Text Box</value>
+      </item>
+      <item>
+        <key>GUI Directives.Group</key>
+        <value>Temper</value>
+      </item>
+      <item>
+        <key>GUI Directives.Show Description</key>
+        <value>true</value>
+      </item>
+    </items>
+  </annotations>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter" name="Vitals measurement">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Body weight" path="/content">
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>lb</excludedUnits>
+          <unitMagnitude>
+            <unit>kg</unit>
+            <maxMagnitude>225</maxMagnitude>
+            <minMagnitude>20</minMagnitude>
+            <includesMaximum>true</includesMaximum>
+            <includesMinimum>true</includesMinimum>
+          </unitMagnitude>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0024]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0009]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0025]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>in</excludedUnits>
+          <unitMagnitude>
+            <unit>cm</unit>
+            <maxMagnitude>210</maxMagnitude>
+            <minMagnitude>30</minMagnitude>
+            <includesMaximum>true</includesMaximum>
+            <includesMinimum>true</includesMinimum>
+          </unitMagnitude>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1" concept_name="Body mass index" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>lb/in2</excludedUnits>
+        </constraint>
+      </Rule>
+      <Rule path="/protocol[at0005]/items[at0006]" max="0" />
+      <Rule path="/protocol[at0005]/items[at0010]" max="0" />
+      <Rule path="/protocol[at0005]/items[at0011]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v1" concept_name="Body temperature" path="/content">
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>°F</excludedUnits>
+          <unitMagnitude>
+            <unit>°C</unit>
+            <maxMagnitude>40</maxMagnitude>
+            <minMagnitude>30</minMagnitude>
+            <includesMaximum>true</includesMaximum>
+            <includesMinimum>true</includesMinimum>
+          </unitMagnitude>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0030]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0041]" max="0" />
+      <Rule path="/protocol[at0020]/items[at0021]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.indirect_oximetry.v1" concept_name="Indirect Oximetry" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0045]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0046]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0039]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0040]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0019]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0058]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0036]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0014]/items[at0057]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0014]/items[at0016]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0009]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0020]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0037]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0038]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1" concept_name="Blood Pressure" path="/content">
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1006]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1007]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at0033]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at0008]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1052]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1043]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1005]" max="0" />
+      <Rule path="/data[at0001]/events[at1042]" max="0" />
+      <Rule path="/protocol[at0011]/items[at0013]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1033]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1035]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1038]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1054]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1055]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1010]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pulse.v1" concept_name="Pulse/Heart beat" path="/content">
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1005]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1055]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1022]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0012]/items[at0013]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0012]/items[at1018]" max="0" />
+      <Rule path="/data[at0002]/events[at1036]" max="0" />
+      <Rule path="/protocol[at0010]/items[at1019]" max="0" />
+      <Rule path="/protocol[at0010]/items[at1037]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.respiration.v1" concept_name="Respirations" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0009]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0022]/items[at0056]" max="0" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical Synopsis" path="/content" />
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.event_context.v0" concept_name="Event context" path="/context/other_context[at0001]/items[at0002]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organisation.v1" concept_name="Organisation" path="/items[at0004]">
+          <Rule path="/items[at0005]" max="0" />
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Professional Individual demographics" path="/items[at0011]">
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" path="/items[at0015]">
+            <Rule path="/items[at0006]" max="0" />
+            <Rule path="/items[at0022]" max="0" />
+            <Rule path="/items[at0001]" max="0" />
+            <Rule path="/items[at0014]" max="0" />
+          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.professional_role.v1" concept_name="Professional role" path="/items[at0003]/items[at0016]" />
+        </Items>
+      </Items>
+    </Context>
+  </definition>
+  <view>
+    <constraints path="[openEHR-EHR-COMPOSITION.encounter.v1]/composer">
+      <items id="VisibleInView">
+        <value>composer</value>
+      </items>
+    </constraints>
+  </view>
+</template>

@@ -72,6 +72,86 @@
       </item>
     </other_details>
   </description>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[openEHR-EHR-CLUSTER.individual_professional.v1]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Use the details of the logged in person</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Use start date-time as default, Option  to change from UI</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[openEHR-EHR-CLUSTER.individual_professional.v1]/items[at0003]/items[openEHR-EHR-CLUSTER.professional_role.v1]/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Use Nutrition Coach</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[openEHR-EHR-CLUSTER.individual_professional.v1]/items[at0003]/items[at0006]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Use Nutrition</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[openEHR-EHR-CLUSTER.individual_professional.v1]/items[at0003]/items[at0012]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Use Herbalife</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[openEHR-EHR-CLUSTER.organisation.v1]/items[at0001]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Use Herbalife</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[openEHR-EHR-CLUSTER.organisation.v1]/items[at0011]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Leave empty till we create the Herbalife organization and give it an ID. Later that ID can be used.</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[at0003]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Leave empty for now</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[at0002]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Advice	Use start date-time as default, Option  to change to another date and time</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.event_context.v0]/items[at0005]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>Use 'Home care' option as default</value>
+      </item>
+    </items>
+  </annotations>
   <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter">
     <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" path="/content">
       <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
@@ -111,11 +191,26 @@
     </Content>
     <Context>
       <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.event_context.v0" concept_name="Event context" path="/context/other_context[at0001]/items[at0002]">
+        <Rule path="/items[at0005]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0006</excludedValues>
+            <excludedValues>local::at0007</excludedValues>
+            <excludedValues>local::at0009</excludedValues>
+          </constraint>
+        </Rule>
         <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organisation.v1" concept_name="Organisation" path="/items[at0004]">
           <Rule path="/items[at0005]" max="0" />
         </Items>
         <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Professional Individual demographics" path="/items[at0011]">
-          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" path="/items[at0015]" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" path="/items[at0015]">
+            <Rule path="/items[at0006]" max="0" />
+            <Rule path="/items[at0022]" max="0" />
+            <Rule path="/items[at0001]" max="0" />
+            <Rule path="/items[at0002]/items[at0003]" name="First name" />
+            <Rule path="/items[at0002]/items[at0004]" max="0" />
+            <Rule path="/items[at0002]/items[at0005]" name="Last name" />
+            <Rule path="/items[at0002]/items[at0018]" max="0" />
+          </Items>
           <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.professional_role.v1" concept_name="Professional role" path="/items[at0003]/items[at0016]" />
         </Items>
       </Items>

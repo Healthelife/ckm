@@ -1,0 +1,251 @@
+﻿archetype (adl_version=2.0.6; rm_release=1.0.2; generated; uid=73f3c93d-7793-43e8-8435-1e6e5047d38d)
+	openEHR-EHR-CLUSTER.employment.v0.0.1-alpha
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Kristian Berg">
+				["organisation"] = <"Universitetssykehuset Nord Norge">
+				["email"] = <"kristian.berg@unn.no">
+			>
+		>
+	>
+
+description
+	lifecycle_state = <"unmanaged">
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"2010-12-17">
+	>
+	original_namespace = <"au.org.nehta">
+	original_publisher = <"NEHTA, Australia">
+	custodian_namespace = <"org.openehr">
+	custodian_organisation = <"openEHR Foundation">
+	copyright = <"© 2010 NEHTA, openEHR Foundation, Nasjonal IKT HF">
+	licence = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a persisting and evolving summary about the employment background of the individual.">
+			use = <"Use to record an employment summary about the individual.">
+			keywords = <"employment", "employer", "job", "occupation">
+			misuse = <"Not to be used for detailed descriptions of health risks or exposure to hazardous substances in the workplace. Use the archetypes EVALUATION.health_risk or EVALUATION.exposure for this purpose.">
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"Registrering av individets nåværende og tidligere arbeidsforhold.">
+			use = <"Brukes for å registrere individets nåværende og tidligere arbeidsforhold.">
+			keywords = <"Arbeid", "Arbeidstaker", "Arbeidsgiver", "Arbeidsforhold", "Arbeidshistorikk", "Jobb", "Ansatt", "Yrke", "Helse", "Mljø", "Sikkerhet", "Risiko">
+			misuse = <"Brukes ikke for å detaljert beskrive helserisikoer eller eksponering for farlige substanser i arbeidssituasjonen. Ti dette brukes henholdsvis arketypene EVALUATION.health_risk eller EVALUATION.exposure.">
+		>
+	>
+	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (Nasjonal IKT Editor)", "Silje Ljosland Bakke, National ICT Norway, Norway (openEHR Editor)", "Heather Leslie, Ocean Informatics, Australia (openEHR Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "John Tore Valand, Bergen Hospital Trust, Norway (Nasjonal IKT Editor)">
+	references = <
+		["1"] = <"Derived from: Employment Summary, Draft Archetype [Internet]. nehta, Australia, nehta Clinical Knowledge Manager [cited: 2016-01-11]. Available from: http://dcm.nehta.org.au/ckm/#showArchetype_1013.1.925">
+	>
+	other_details = <
+		["build_uid"] = <"32447e6d-00c6-42f7-bd8e-2c4069315b6a">
+		["MD5-CAM-1.0.1"] = <"84CFEEB4C09F8FFEFED27B066CDB51DF">
+	>
+
+definition
+	CLUSTER[id1] matches {	-- Employment
+		items matches {
+			ELEMENT[id2] occurrences matches {0..1} matches {	-- Employment status
+				value matches {
+					DV_TEXT[id17] 
+				}
+			}
+			CLUSTER[id3] matches {	-- Employment details
+				items matches {
+					ELEMENT[id4] occurrences matches {0..1} matches {	-- Employer name
+						value matches {
+							DV_TEXT[id18] 
+						}
+					}
+					allow_archetype CLUSTER[id5] matches {	-- Employer details
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[id6] occurrences matches {0..1} matches {	-- Title/Role
+						value matches {
+							DV_TEXT[id19] 
+						}
+					}
+					ELEMENT[id14] occurrences matches {0..1} matches {	-- Full time equivalent
+						value matches {
+							DV_QUANTITY[id20] matches {
+								property matches {[at1]}
+								[magnitude, units, precision] matches {
+									[{|0.0..100.0|}, {"%"}, {2}],
+									[{|0.0..1.0|}, {"1"}, {1}]
+								}
+							}
+						}
+					}
+					ELEMENT[id7] occurrences matches {0..1} matches {	-- Occupation type
+						value matches {
+							DV_TEXT[id21] 
+						}
+					}
+					ELEMENT[id16] occurrences matches {0..1} matches {	-- Status
+						value matches {
+							DV_TEXT[id22] 
+						}
+					}
+					ELEMENT[id8] occurrences matches {0..1} matches {	-- Date commenced
+						value matches {
+							DV_DATE_TIME[id23] 
+						}
+					}
+					ELEMENT[id9] occurrences matches {0..1} matches {	-- Date ceased
+						value matches {
+							DV_DATE_TIME[id24] 
+						}
+					}
+					ELEMENT[id10] occurrences matches {0..1} matches {	-- Duration of employment
+						value matches {
+							DV_DURATION[id25] matches {
+								value matches {PYMWD/|>=PT0S|}
+							}
+						}
+					}
+					ELEMENT[id15] occurrences matches {0..1} matches {	-- Working conditions
+						value matches {
+							DV_TEXT[id26] 
+						}
+					}
+				}
+			}
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1"] = <
+				text = <"Employment">
+				description = <"The employment background of the individual.">
+			>
+			["id2"] = <
+				text = <"Employment status">
+				description = <"Current employment status.">
+			>
+			["id3"] = <
+				text = <"Employment details">
+				description = <"Details of each episode of employment.">
+			>
+			["id4"] = <
+				text = <"Employer name">
+				description = <"Identification of employer - company, organisation or individual.">
+			>
+			["id5"] = <
+				text = <"Employer details">
+				description = <"Further detail about the Employer.">
+			>
+			["id6"] = <
+				text = <"Title/Role">
+				description = <"Job title or role undertaken with employer.">
+			>
+			["id7"] = <
+				text = <"Occupation type">
+				description = <"Type of occupation.">
+			>
+			["id8"] = <
+				text = <"Date commenced">
+				description = <"Date employment commenced with employer.">
+			>
+			["id9"] = <
+				text = <"Date ceased">
+				description = <"Date employment ceased with employer.">
+			>
+			["id10"] = <
+				text = <"Duration of employment">
+				description = <"Period of time employed.">
+			>
+			["id14"] = <
+				text = <"Full time equivalent">
+				description = <"The position's fraction or percentage of a full time equivalent.">
+			>
+			["id15"] = <
+				text = <"Working conditions">
+				description = <"Narrative description of the working conditions of this specific employment episode.">
+			>
+			["id16"] = <
+				text = <"Status">
+				description = <"The employment status for this specific employment episode.">
+			>
+			["at1"] = <
+				text = <"Qualified real">
+				description = <"Qualified real">
+			>
+		>
+		["nb"] = <
+			["id1"] = <
+				text = <"Ansettelse">
+				description = <"Individets tidligere ansettelsesforhold.">
+			>
+			["id2"] = <
+				text = <"Arbeidsstatus">
+				description = <"Nåværende arbeidsstatus.">
+			>
+			["id3"] = <
+				text = <"Ansettelsesdetaljer">
+				description = <"Detaljert informasjon om hvert enkelt ansettelsesforhold.">
+			>
+			["id4"] = <
+				text = <"Arbeidsgiver">
+				description = <"Identifisering av arbeidsgiver - selskap, organisasjon eller individ.">
+			>
+			["id5"] = <
+				text = <"Detaljer om arbeidsgiver">
+				description = <"Ytterligere detaljer om arbeidsgiver.">
+			>
+			["id6"] = <
+				text = <"Tittel/Rolle">
+				description = <"Stillingstittel eller rolle hos arbeidsgiver.">
+			>
+			["id7"] = <
+				text = <"Yrkesbeskrivelse">
+				description = <"Type yrke.">
+			>
+			["id8"] = <
+				text = <"Dato for oppstart">
+				description = <"Datoen ansettelsesforholdet trådte i kraft.">
+			>
+			["id9"] = <
+				text = <"Dato avsluttet">
+				description = <"Datoen ansettelsesforholdet opphørte.">
+			>
+			["id10"] = <
+				text = <"Varighet av ansettelse">
+				description = <"Varigheten av ansettelsen.">
+			>
+			["id14"] = <
+				text = <"Stillingsandel">
+				description = <"Stillingens andel av en fulltidsstilling.">
+			>
+			["id15"] = <
+				text = <"Arbeidsforhold">
+				description = <"Fritekstbeskrivelse av arbeidsforhold i den aktuelle stillingen.">
+			>
+			["id16"] = <
+				text = <"Status">
+				description = <"Individets arbeidsstatus for denne spesifikke ansettelsen.">
+			>
+			["at1"] = <
+				text = <"*Qualified real (en)">
+				description = <"*Qualified real (en)">
+			>
+		>
+	>
+	term_bindings = <
+		["openehr"] = <
+			["at1"] = <http://openehr.org/id/380>
+		>
+	>
