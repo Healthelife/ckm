@@ -5,21 +5,17 @@ language
     original_language = <[ISO_639-1::en]>
     translations = <
         ["nb"] = <
-            language = <[ISO_639-1::nb]>
             author = <
                 ["name"] = <"Lars Bitsch-Larsen">
                 ["organisation"] = <"Haukeland University Hospital of Bergen, Norway">
             >
-            accreditation = <"MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.">
         >
         ["sl"] = <
-            language = <[ISO_639-1::sl]>
             author = <
                 ["name"] = <"Biljana Princic">
             >
         >
         ["ar-sy"] = <
-            language = <[ISO_639-1::ar-sy]>
             author = <
                 ["name"] = <"Mona Saleh">
             >
@@ -42,21 +38,18 @@ description
             purpose = <"تسجيل المكان التشريحي بالتفصيل">
             misuse = <"لا يستخدم لتحديد حالات الحدوث في جانب واحد أو في الجانبين - حيث إن ذلك متعلق بتقييم قد يتضمن العديد من الأماكن">
             keywords = <"الموقع", "المكان", "تشريحي">
-            copyright = <"© openEHR Foundation">
         >
         ["sl"] = <
             language = <[ISO_639-1::sl]>
             purpose = <"*To record details about anatomical location.(en)">
             misuse = <"*Not for specifiying unilateral/bilateral occurence - this is related to an evaluation which perhaps includes multiple locations.(en)">
             keywords = <"*location(en)", "*site(en)", "*anatomical(en)">
-            copyright = <"© openEHR Foundation">
         >
         ["nb"] = <
             language = <[ISO_639-1::nb]>
             purpose = <"For registrering av detaljer om et anatomisk sted.">
             misuse = <"Anvendes ikke for spesifisering av unilateral/bilateral forekomst - dette relateres til en vurdering som kanskje omfatter flere steder.">
             keywords = <"sted", "lokasjon", "anatomisk", "site">
-            copyright = <"© openEHR Foundation">
         >
         ["en"] = <
             language = <[ISO_639-1::en]>
@@ -76,23 +69,10 @@ The 'Alternative structure' SLOT allows inclusion of additional archetypes that 
 If this archetype is used within other archetypes where the specified subject of care is not the individual for whom the record is being created, for example a fetus in-utero, then the anatomical location will be identifying a body site on or within the fetus.">
             misuse = <"Not to be used for specifiying unilateral/bilateral occurrences of an anatomical feature.">
             keywords = <"location", "site", "anatomical", "anatomic region", "topographic anatomy", "macroscopic", "anatomic", "anatomy">
-            copyright = <"© openEHR Foundation">
         >
     >
     conversion_details = <
         ["author"] = <"aom14 model importer">
-    >
-    other_details = <
-        ["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
-        ["custodian_organisation"] = <"openEHR Foundation">
-        ["references"] = <"Anatomy Mapper website [Internet]. Matt Molenda, [cited 2015 Apr 27]. Available from: http://www.anatomymapper.com/.">
-        ["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
-        ["original_namespace"] = <"org.openehr">
-        ["original_publisher"] = <"openEHR Foundation">
-        ["custodian_namespace"] = <"org.openehr">
-        ["MD5-CAM-1.0.1"] = <"910D849C4514BA7DB4D5812F30AF63D6">
-        ["build_uid"] = <"8703b7fa-f3cb-4c17-aaee-8d2bdd13ce31">
-        ["revision"] = <"1.0.1">
     >
 
 definition
@@ -739,19 +719,5 @@ If the 'Body site name' data element uses pre-coordinated terms that include lat
             ["id3"] = <http://snomed.info/id/272741003>
             ["at4"] = <http://snomed.info/id/419161000>
             ["at5"] = <http://snomed.info/id/419465000>
-        >
-    >
-    value_sets = <
-        ["ac84"] = <
-            id = <"ac84">
-            members = <"at4", "at5">
-        >
-        ["ac86"] = <
-            id = <"ac86">
-            members = <"at68", "at69", "at70", "at71", "at72", "at73", "at74", "at75", "at76", "at77", "at78", "at79", "at80">
-        >
-        ["ac89"] = <
-            id = <"ac89">
-            members = <"at63", "at57", "at58", "at59", "at60", "at61", "at64">
         >
     >
