@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
-  <id>8aa69e7a-8c2a-4771-8da6-a81e581d26cf</id>
-  <name>Nutrition Base Vitals</name>
+  <id>3bea1f1d-d60a-4a6f-b445-c89c7b3744f9</id>
+  <name>BP/Pulse</name>
   <description>
     <original_author>
       <item>
@@ -14,7 +14,7 @@
     </original_author>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
-      <purpose>Record the basic vitals used by nutrition coaches</purpose>
+      <purpose>Recoding of BP &amp; Pulse</purpose>
       <keywords>
         <item>nutrition</item>
       </keywords>
@@ -152,153 +152,62 @@
       </item>
     </items>
   </annotations>
-  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-OBSERVATION.height.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
-    <items>
-      <item>
-        <key>GUI Directives.Widget Type</key>
-        <value>Text Box</value>
-      </item>
-    </items>
-  </annotations>
-  <annotations path="[openEHR-EHR-COMPOSITION.encounter.v1]/content[openEHR-EHR-OBSERVATION.body_fat.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
-    <items>
-      <item>
-        <key>GUI Directives.Widget Type</key>
-        <value>Text Box</value>
-      </item>
-    </items>
-  </annotations>
   <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter">
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" max="1" path="/content">
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" name="Height">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1" concept_name="Blood Pressure" path="/content">
+      <Rule path="/data[at0001]/events[at0006]" max="1" />
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at0004]">
         <constraint xsi:type="quantityConstraint">
-          <excludedUnits>in</excludedUnits>
           <unitMagnitude>
-            <unit>cm</unit>
-            <maxMagnitude>200</maxMagnitude>
-            <minMagnitude>90</minMagnitude>
+            <unit>mm[Hg]</unit>
+            <maxMagnitude>250</maxMagnitude>
+            <minMagnitude>50</minMagnitude>
             <includesMaximum>true</includesMaximum>
             <includesMinimum>true</includesMinimum>
           </unitMagnitude>
         </constraint>
       </Rule>
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
-      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
-      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]" max="0" />
-    </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Body weight" max="1" path="/content">
-      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at0005]">
         <constraint xsi:type="quantityConstraint">
-          <excludedUnits>lb</excludedUnits>
           <unitMagnitude>
-            <unit>kg</unit>
+            <unit>mm[Hg]</unit>
             <maxMagnitude>150</maxMagnitude>
-            <minMagnitude>20</minMagnitude>
+            <minMagnitude>30</minMagnitude>
             <includesMaximum>true</includesMaximum>
             <includesMinimum>true</includesMinimum>
           </unitMagnitude>
         </constraint>
       </Rule>
-      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0024]" max="0" />
-      <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0009]" max="0" />
-      <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0025]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1006]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1007]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at0033]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1052]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1043]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1005]" max="0" />
+      <Rule path="/data[at0001]/events[at1042]" max="0" />
+      <Rule path="/protocol[at0011]/items[at0013]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1033]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1035]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1038]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1054]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1055]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1010]" max="0" />
     </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1" concept_name="Body mass index" max="1" path="/content">
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" name="BMI">
-        <constraint xsi:type="quantityConstraint">
-          <excludedUnits>lb/in2</excludedUnits>
-          <unitMagnitude>
-            <unit>kg/m2</unit>
-            <maxMagnitude>40</maxMagnitude>
-            <minMagnitude>15</minMagnitude>
-            <includesMaximum>true</includesMaximum>
-            <includesMinimum>true</includesMinimum>
-          </unitMagnitude>
-        </constraint>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pulse.v1" concept_name="Pulse/Heart beat" max="1" path="/content" name="Pulse">
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1005]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+        <nameConstraint>
+          <excludedValues>local::at1027</excludedValues>
+        </nameConstraint>
       </Rule>
-      <Rule path="/protocol[at0005]/items[at0006]">
-        <constraint xsi:type="textConstraint">
-          <excludedValues>local::at0007</excludedValues>
-        </constraint>
-      </Rule>
-      <Rule path="/protocol[at0005]/items[at0010]" max="0" />
-      <Rule path="/protocol[at0005]/items[at0011]" max="0" />
-    </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_fat.v0" concept_name="body_fat" max="1" path="/content" name="Body fat">
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
-        <constraint xsi:type="quantityConstraint">
-          <unitMagnitude>
-            <unit>%</unit>
-            <maxMagnitude>40</maxMagnitude>
-            <minMagnitude>10</minMagnitude>
-            <includesMaximum>true</includesMaximum>
-            <includesMinimum>true</includesMinimum>
-          </unitMagnitude>
-        </constraint>
-      </Rule>
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]">
-        <constraint xsi:type="quantityConstraint">
-          <unitMagnitude>
-            <unit>%</unit>
-            <maxMagnitude>25</maxMagnitude>
-            <minMagnitude>1</minMagnitude>
-            <includesMaximum>true</includesMaximum>
-            <includesMinimum>true</includesMinimum>
-          </unitMagnitude>
-        </constraint>
-      </Rule>
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0015]" name="Subcutaneous fat">
-        <constraint xsi:type="quantityConstraint">
-          <unitMagnitude>
-            <unit>%</unit>
-            <maxMagnitude>15</maxMagnitude>
-            <minMagnitude>1</minMagnitude>
-            <includesMaximum>true</includesMaximum>
-            <includesMinimum>true</includesMinimum>
-          </unitMagnitude>
-        </constraint>
-      </Rule>
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
-    </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.bmr.v0" concept_name="Bmr" max="1" path="/content">
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
-        <constraint xsi:type="quantityConstraint">
-          <unitMagnitude>
-            <unit>%</unit>
-            <maxMagnitude>2000</maxMagnitude>
-            <minMagnitude>1200</minMagnitude>
-            <includesMaximum>true</includesMaximum>
-            <includesMinimum>true</includesMinimum>
-          </unitMagnitude>
-        </constraint>
-      </Rule>
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
-    </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body-age.v0" concept_name="body-age" max="1" path="/content">
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
-        <constraint xsi:type="durationConstraint">
-          <pattern>PY</pattern>
-          <maxMagnitude>P99Y</maxMagnitude>
-          <minMagnitude>P10Y</minMagnitude>
-          <includesMaximum>true</includesMaximum>
-          <includesMinimum>true</includesMinimum>
-        </constraint>
-      </Rule>
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
-    </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_muscle.v0" concept_name="Body_muscle" max="1" path="/content">
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
-        <constraint xsi:type="quantityConstraint">
-          <unitMagnitude>
-            <unit>%</unit>
-            <maxMagnitude>45</maxMagnitude>
-            <minMagnitude>0</minMagnitude>
-            <includesMaximum>true</includesMaximum>
-            <includesMinimum>true</includesMinimum>
-          </unitMagnitude>
-        </constraint>
-      </Rule>
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1055]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1022]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0012]/items[at1018]" max="0" />
+      <Rule path="/data[at0002]/events[at1036]" max="0" />
+      <Rule path="/protocol[at0010]/items[at1019]" max="0" />
+      <Rule path="/protocol[at0010]/items[at1037]" max="0" />
     </Content>
     <Context>
       <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.event_context.v0" concept_name="Event context" path="/context/other_context[at0001]/items[at0002]">
@@ -314,6 +223,11 @@
         </Items>
         <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Professional Individual demographics" path="/items[at0011]">
           <Rule path="/items[at0003]/items[at0013]" max="0" />
+          <Rule path="/items[at0003]/items[at0006]">
+            <constraint xsi:type="textConstraint">
+              <includedValues>Nutrition coach</includedValues>
+            </constraint>
+          </Rule>
           <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" path="/items[at0015]">
             <Rule path="/items[at0006]" max="0" />
             <Rule path="/items[at0022]" max="0" />
