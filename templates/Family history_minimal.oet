@@ -1,15 +1,11 @@
 <?xml version="1.0"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
-  <id>8b367235-74b1-4bd3-abcf-689ea6783dfe</id>
-  <name>Family History</name>
+  <id>3aea867f-b76a-4bff-a882-ab00c23f6f33</id>
+  <name>Family history(minimal) </name>
   <description>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
-      <purpose>Capture details of reported problems in the family</purpose>
-      <keywords>
-        <item>History</item>
-        <item>Family</item>
-      </keywords>
+      <purpose>Minimal record history of illnesses in the family</purpose>
       <use />
       <misuse />
     </details>
@@ -66,24 +62,7 @@
   </description>
   <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.family_history.v1" concept_name="Family History">
     <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.family_history.v2" concept_name="Family history" path="/content[at0001]">
-      <Rule path="/data[at0001]/items[at0028]" max="0" />
-      <Rule path="/data[at0001]/items[at0003]/items[at0020]" max="0" />
-      <Rule path="/data[at0001]/items[at0003]/items[at0011]">
-        <constraint xsi:type="durationConstraint">
-          <pattern>PYM</pattern>
-          <includesMaximum>false</includesMaximum>
-          <includesMinimum>false</includesMinimum>
-        </constraint>
-      </Rule>
-      <Rule path="/data[at0001]/items[at0003]/items[at0008]/items[at0012]" max="0" />
-      <Rule path="/data[at0001]/items[at0003]/items[at0008]/items[at0014]">
-        <constraint xsi:type="multipleConstraint">
-          <includedTypes>Coded_text</includedTypes>
-        </constraint>
-      </Rule>
-      <Rule path="/data[at0001]/items[at0003]/items[at0046]" max="0" />
-      <Rule path="/data[at0001]/items[at0003]/items[at0024]" max="0" />
-      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.family_prevalence.v1" concept_name="Family prevalence" path="/data[at0001]/items[at0028]/items[at0059]" />
+      <Rule path="/data[at0001]/items[at0003]" max="0" />
     </Content>
     <Context />
   </definition>

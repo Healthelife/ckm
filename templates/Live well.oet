@@ -182,6 +182,7 @@
       </Rule>
       <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0078]" max="0" />
       <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
       <Rule path="/data[at0001]/events[at0002]/state[at0.89]/items[at0.90]" max="0" />
       <Rule path="/data[at0001]/events[at0002]/state[at0.89]/items[at0.98]" max="0" />
       <Rule path="/data[at0001]/events[at0002]/state[at0.89]/items[at0.107]" max="0" />

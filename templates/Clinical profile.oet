@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>5a5e6e6b-619c-40fa-bffb-35dd5e1007f5</id>
+  <name>Clinical profile</name>
+  <description>
+    <original_author>
+      <item>
+        <key>Name</key>
+        <value>Dileep V S</value>
+      </item>
+      <item>
+        <key>Email</key>
+        <value>dileep@healthelife.in</value>
+      </item>
+    </original_author>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Record the persistent clinical data of a person</purpose>
+      <keywords>
+        <item>wellness</item>
+        <item>Clinical profile</item>
+        <item>Persistent</item>
+      </keywords>
+      <use />
+      <misuse>Not to be used for recoding of information during encounters</misuse>
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.persistent.v0" concept_name="Persistent">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.blood_match-group.v1" concept_name="Blood group" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0009]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+      <Rule path="/protocol[at0011]/items[at0012]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" max="1" path="/content" name="Height">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" name="Height">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>in</excludedUnits>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.step_length.v0" concept_name="Step length - walking and running" max="1" path="/content" name="Step length">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>in</excludedUnits>
+          <unitMagnitude>
+            <unit>cm</unit>
+            <maxMagnitude>130</maxMagnitude>
+            <minMagnitude>0</minMagnitude>
+            <includesMaximum>true</includesMaximum>
+            <includesMinimum>true</includesMinimum>
+          </unitMagnitude>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>in</excludedUnits>
+          <unitMagnitude>
+            <unit>cm</unit>
+            <maxMagnitude>220</maxMagnitude>
+            <minMagnitude>0</minMagnitude>
+            <includesMaximum>true</includesMaximum>
+            <includesMinimum>true</includesMinimum>
+          </unitMagnitude>
+        </constraint>
+      </Rule>
+      <Rule path="/protocol[at0006]/items[at0007]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.diabetics_risk_analysis.v0" concept_name="Diabetics risk analysis" max="1" path="/content" name="Diabetes">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0013]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0019]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0022]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0025]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0028]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0031]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0034]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0037]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0046]" max="0" />
+    </Content>
+  </definition>
+</template>

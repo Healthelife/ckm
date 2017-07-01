@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
-  <id>c34d565d-5c42-402d-9095-d81376064dd8</id>
-  <name>test context</name>
+  <id>b302f982-1103-48af-a9bb-086cfdca5067</id>
+  <name>Social summary</name>
   <description>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
-      <purpose />
+      <purpose>Capture the nature of general social and professional interactions</purpose>
       <use />
       <misuse />
     </details>
@@ -60,9 +60,8 @@
       </item>
     </other_details>
   </description>
-  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter-event_context.v1" concept_name="Encounter with event context">
-    <Context>
-      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organisation.v1" concept_name="Organisation" path="/context/other_context[at0001]/items[at0.5]" />
-    </Context>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.social_summary.v1" concept_name="Social Summary">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.social_summary-extended.v1" concept_name="Social summary extended" path="/content[at0001]" />
+    <Context />
   </definition>
 </template>

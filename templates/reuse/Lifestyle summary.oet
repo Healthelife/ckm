@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>bcb2eebc-df81-4a53-b627-5c77b5cbf2d8</id>
+  <name>Lifestyle summary</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Record lifestyle factorswhich may have an impact on health</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.lifestyle_factors-extended.v1" concept_name="Lifestyle Factors - extended">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.food_habits_summary.v0" concept_name="Food habits summary" path="/content[at0004.1]" />
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.food_pattern.v1" concept_name="Food pattern" path="/content[at0004.1]" />
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.physical_activity_summary.v1" concept_name="Physical Activity Summary" path="/content[at0004.1]">
+      <Rule path="/data[at0001]/items[at0003]" max="0" />
+      <Rule path="/data[at0001]/items[at0005]" max="0" />
+      <Rule path="/data[at0001]/items[at0006]" max="0" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.physical_activity_summary-yoga.v1" concept_name="Yoga practice" path="/content[at0004.1]">
+      <Rule path="/data[at0001]/items[at0005.1]" max="0" />
+      <Rule path="/data[at0001]/items[at0006.1]" max="0" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.physical_activity_summary-meditation.v1" concept_name="Meditation practice" path="/content[at0004.1]">
+      <Rule path="/data[at0001]/items[at0005.1]" max="0" />
+      <Rule path="/data[at0001]/items[at0006.1]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.substance_use-tobacco-all_forms.v1" concept_name="Tobacco use of all types" max="1" path="/content[at0.6]">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010.0.1]/items[at0.0.9]/items[at0012.1]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010.0.1]/items[at0.0.9]/items[at0012.2.1]" max="1" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.substance_use-alcohol.v1" concept_name="Alcohol Consumption" max="1" path="/content[at0.6]">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010.1]/items[at0012]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010.1]/items[at0012.1]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010.1]/items[at0012.2]" max="1" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.substance_use-caffeine.v1" concept_name="Caffeine consumption" max="1" path="/content[at0.6]">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010.1]/items[at0.25]/items[at0012]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010.1]/items[at0.25]/items[at0012.1]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010.1]/items[at0.25]/items[at0012.2]" max="1" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010.1]/items[at0.25]/items[at0012.3]" max="1" />
+    </Content>
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.event_context.v0" concept_name="Event context" path="/context/other_context[at0002]/items[at0003.1]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organisation.v1" concept_name="Organisation" path="/items[at0004]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Professional Individual demographics" path="/items[at0011]" />
+      </Items>
+    </Context>
+  </definition>
+</template>
