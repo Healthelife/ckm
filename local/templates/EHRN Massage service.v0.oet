@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>68e88c13-1593-4fb8-aa21-1d3310ba0db2</id>
+  <name>EHRN Massage service.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.service_tracker.v0" concept_name="Service tracker">
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.service-massage.v0" concept_name="Massage service" path="/content">
+      <Rule path="/description[at0001]/items[at0.39]" max="0" />
+      <Rule path="/description[at0001]/items[at0.48]" max="0" />
+      <Rule path="/description[at0001]/items[at0028.1]" max="0" />
+      <Rule path="/protocol[at0015]/items[at0016]" max="0" />
+      <Rule path="/protocol[at0015]/items[at0018]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_substance.v0" concept_name="Medication substance" path="/description[at0001]/items[at0027]">
+        <Rule path="/items[at0142]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0146</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0117]" max="0" />
+        <Rule path="/items[at0126]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.feedback.v0" concept_name="Feedback" path="/description[at0001]/items[at0.37]" />
+    </Content>
+    <Context />
+  </definition>
+</template>

@@ -1,0 +1,47 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.current_food_habits.v0
+
+concept
+	[at0000]	-- Current food habits
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Current food habits of a person">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Healthelife ventures">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]
+">
+		["MD5-CAM-1.0.1"] = <"F1DC5D416E27D2F160D7B135449B28E1">
+		["current_contact"] = <"Dileep V S, Healthelife Ventures LLP<dileep@healthelife.in>">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Current food habits">
+					description = <"Current food habits of a person">
+				>
+			>
+		>
+	>

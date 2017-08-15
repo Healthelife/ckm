@@ -1,0 +1,286 @@
+﻿archetype (adl_version=1.4; uid=86cb6739-f7f6-48ca-90ac-541e4655cd26)
+	openEHR-EHR-EVALUATION.yoga_activity_summary.v0
+
+concept
+	[at0000]	-- Yoga activity summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a summary of typical yoga activity of an individual.">
+			use = <"Use to record a summary of typical, or usual, yoga activity of children or adults.
+">
+			keywords = <"activity", "exercise", "physical", "fitness", "yoga">
+			misuse = <"Not to be used to record actual yoga activity at a specific point in time or during a specified period of time - use OBSERVATION.yoga_activity for this purpose.">
+			copyright = <"© Healthelife ventures">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["revision"] = <"0.0.1-alpha">
+		["original_publisher"] = <"openEHR Foundation">
+		["current_contact"] = <"Dileep V S, Healthelife Ventures LLP<dileep@healthelife.in>">
+		["build_uid"] = <"a690cdbc-868b-43f4-8bd9-36460008bde0">
+		["original_namespace"] = <"org.openehr">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["references"] = <"Physical Activity Summary, Draft Archetype [Internet]. Australian Digital Health Agency, Australian Digital Health Agency Clinical Knowledge Manager [cited: 2017-06-20]. Available from: http://dcm.nehta.org.au/ckm/#showArchetype_1013.1.932">
+		["MD5-CAM-1.0.1"] = <"0D6F84F795C9A2A1BFE9BDFACAAF9257">
+		["custodian_namespace"] = <"org.openehr">
+		["custodian_organisation"] = <"openEHR Foundation">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Yoga activity summary
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Yoga activity level(YAL) status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0009, 	-- Unable
+									at0010, 	-- Inactive
+									at0011, 	-- Moderately active
+									at0012, 	-- Vigorously active
+									at0013]	-- Extremely active
+								}
+							}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- Experience level
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0026, 	-- First timer
+									at0027, 	-- Beginner
+									at0028, 	-- Intermediate
+									at0029]	-- Advanced(>5 yrs)
+								}
+							}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- Style of yoga
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0018, 	-- Hatha
+									at0019, 	-- Power
+									at0020, 	-- Vinyasa
+									at0021, 	-- Vikram
+									at0022, 	-- Iyengar
+									at0023, 	-- Sivananda
+									at0024]	-- Other
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Typical moderate yoga
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::382]>
+								list = <
+									["1"] = <
+										units = <"1/d">
+									>
+									["2"] = <
+										units = <"1/wk">
+									>
+									["3"] = <
+										units = <"1/mo">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Typical vigorous yoga
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::382]>
+								list = <
+									["1"] = <
+										units = <"1/d">
+									>
+									["2"] = <
+										units = <"1/wk">
+									>
+									["3"] = <
+										units = <"1/mo">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..*} matches {	-- Barrier
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..*} matches {	-- Enabler
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0014] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0015] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Yoga activity summary">
+					description = <"A summary of the typical level of yoga activity undertaken by the individual.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Yoga activity level(YAL) status">
+					description = <"The category of the typical, or usual, yoga activity level of an individual.">
+					comment = <"Coding with a terminology is desirable, where possible.">
+				>
+				["at0003"] = <
+					text = <"Description">
+					description = <"A narrative description about the individual's typical level of yoga activity.">
+				>
+				["at0005"] = <
+					text = <"Barrier">
+					description = <"Identified factor that prevents the individual to become more active in yoga.">
+				>
+				["at0006"] = <
+					text = <"Enabler">
+					description = <"Identified factor that may support the individual to become more active in yoga.">
+					comment = <"For example: lives close to a swimming pool; or previously an elite athlete.">
+				>
+				["at0007"] = <
+					text = <"Typical vigorous yoga">
+					description = <"Typical number of minutes of vigorous yoga.">
+				>
+				["at0008"] = <
+					text = <"Typical moderate yoga">
+					description = <"Typical number of minutes of moderate yoga.">
+				>
+				["at0009"] = <
+					text = <"Unable">
+					description = <"The individual is extremely inactive, for example a bedridden patient.">
+				>
+				["at0010"] = <
+					text = <"Inactive">
+					description = <"The individual does not do any yoga">
+				>
+				["at0011"] = <
+					text = <"Moderately active">
+					description = <"The individual is moerately active in yoga. For example 30 min of yoga everyday">
+				>
+				["at0012"] = <
+					text = <"Vigorously active">
+					description = <"The individual is very active in ypga, for example a person doing yoga for 1 hour daily.">
+				>
+				["at0013"] = <
+					text = <"Extremely active">
+					description = <"The individual is extremely active, for example more than 1 hour of yoga">
+				>
+				["at0014"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0015"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0016"] = <
+					text = <"Last updated">
+					description = <"The date when the physical activity summary was last updated.">
+				>
+				["at0017"] = <
+					text = <"Style of yoga">
+					description = <"Style of yoga practiced by the individual">
+				>
+				["at0018"] = <
+					text = <"Hatha">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Power">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Vinyasa">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Vikram">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Iyengar">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Sivananda">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Other">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Experience level">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"First timer">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Beginner">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Intermediate">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Advanced(>5 yrs)">
+					description = <"*">
+				>
+			>
+		>
+	>

@@ -1,0 +1,81 @@
+﻿archetype (adl_version=1.4; uid=aab23408-3f8d-4bc8-b214-34af97e9abbd)
+	openEHR-EHR-COMPOSITION.emotional_activity_summary.v0
+
+concept
+	[at0000]	-- Emotionall activity summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a summary of emotional health activity information about an individual, representing a subset of their health record at a specified point in time.">
+			use = <"">
+			keywords = <"summary", "synopsis", "overview", "status", "physical">
+			misuse = <"Not to be used to record details about a single emotional health activity event">
+			copyright = <"© Healthelife ventures">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["revision"] = <"1.0.0">
+		["original_publisher"] = <"openEHR Foundation">
+		["current_contact"] = <"Dileep V S, Healthelife Ventures LLP<dileep@healthelife.in>">
+		["build_uid"] = <"dc6e362e-eaf7-43e0-aa3f-b7c02503f0dc">
+		["original_namespace"] = <"org.openehr">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["MD5-CAM-1.0.1"] = <"05D50F7DA748C0BCEC4C3FC05C9F725E">
+		["custodian_namespace"] = <"org.openehr">
+		["custodian_organisation"] = <"openEHR Foundation">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- Emotionall activity summary
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0001] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {	-- Extension
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Emotionall activity summary">
+					description = <"Generic document containing a summary of emotional health related activity information about an individual.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+			>
+		>
+	>

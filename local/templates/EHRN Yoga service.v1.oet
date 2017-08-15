@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>447c6d74-efb9-4236-8b60-f71bb9cf98e7</id>
+  <name>EHRN Yoga service.v1</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.service_tracker.v0" concept_name="Service tracker">
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.service-wellness.v0" concept_name="Wellness service" path="/content">
+      <Rule path="/description[at0001]/items[at0011]">
+        <constraint xsi:type="textConstraint">
+          <includedValues>Yoga</includedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/protocol[at0015]/items[at0016]" max="0" />
+      <Rule path="/protocol[at0015]/items[at0018]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.yoga.v0" concept_name="Yoga" path="/description[at0001]/items[at0027]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.feedback.v0" concept_name="Feedback" path="/description[at0001]/items[at0.40]" />
+    </Content>
+    <Context />
+  </definition>
+</template>

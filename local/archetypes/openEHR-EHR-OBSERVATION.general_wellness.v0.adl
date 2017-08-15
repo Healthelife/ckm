@@ -1,0 +1,453 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.general_wellness.v0
+
+concept
+	[at0000]	-- General wellness
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-05">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the general subjective wellness parameters of a person at any point of time">
+			use = <"">
+			keywords = <"wellness", "sleep", "energy level", "general feel", "stress", "spiritual happiness">
+			misuse = <"">
+			copyright = <"@Healthelife ventures">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Dileep V S, Healthelife Ventures LLP<dileep@healthelife.in>">
+		["MD5-CAM-1.0.1"] = <"A62BB2D1F8FE0DA8FDFA67D4B3929A06">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- General wellness
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0010] occurrences matches {0..1} matches {	-- Sleep
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Sleep time
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0011, 	-- 7-9 pm
+															at0012, 	-- 9-11 pm
+															at0013, 	-- 11-12 pm
+															at0014]	-- After 12 pm
+														}
+													}
+												}
+											}
+											ELEMENT[at0004] occurrences matches {0..1} matches {	-- Waking time
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0005, 	-- 4-6 am
+															at0006, 	-- 6-8 am
+															at0008, 	-- 8-10 am
+															at0007]	-- After 10 am
+														}
+													}
+												}
+											}
+											ELEMENT[at0020] occurrences matches {0..1} matches {	-- Sleep experience
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0021, 	-- Sound
+															at0022, 	-- Light & interrupted
+															at0023, 	-- Not enough
+															at0024, 	-- Heavy and long
+															at0025, 	-- Difficulty sleeping
+															at0026, 	-- Difficulty waking
+															at0027, 	-- Frequent nightmares
+															at0028]	-- Wake up too early
+														}
+													}
+												}
+											}
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- Feeling on wake up
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0016, 	-- Fresh & rested
+															at0017, 	-- Little tired
+															at0018, 	-- Tired
+															at0019]	-- Very tired
+														}
+													}
+												}
+											}
+											ELEMENT[at0029] occurrences matches {0..1} matches {	-- Sleep position
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0030, 	-- On back
+															at0031, 	-- On stomach
+															at0032, 	-- Left side
+															at0033]	-- Right side
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0034] occurrences matches {0..1} matches {	-- Feeling of purpose
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0036, 	-- Completely
+													at0037, 	-- Somewhat
+													at0038, 	-- Natural
+													at0039]	-- Purposeless
+												}
+											}
+										}
+									}
+									ELEMENT[at0035] occurrences matches {0..1} matches {	-- Quality of spiritual life
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0040, 	-- Fully satisfied
+													at0041, 	-- Somewhat satisfying
+													at0042, 	-- No impact
+													at0043]	-- Empty feeling
+												}
+											}
+										}
+									}
+									ELEMENT[at0044] occurrences matches {0..1} matches {	-- Energy level
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0045, 	-- Very high
+													at0046, 	-- High
+													at0047, 	-- Moderate
+													at0048, 	-- Low
+													at0049]	-- Very low
+												}
+											}
+										}
+									}
+									CLUSTER[at0050] occurrences matches {0..1} matches {	-- Climate impact
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0051] occurrences matches {0..1} matches {	-- Cold
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0052, 	-- Comfortable
+															at0053, 	-- Uncomfortable
+															at0054]	-- Depressed
+														}
+													}
+												}
+											}
+											ELEMENT[at0055] occurrences matches {0..1} matches {	-- Hot
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0052, 	-- Comfortable
+															at0053, 	-- Uncomfortable
+															at0054]	-- Depressed
+														}
+													}
+												}
+											}
+											ELEMENT[at0056] occurrences matches {0..1} matches {	-- Cool & damp
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0052, 	-- Comfortable
+															at0053, 	-- Uncomfortable
+															at0054]	-- Depressed
+														}
+													}
+												}
+											}
+											ELEMENT[at0057] occurrences matches {0..1} matches {	-- Hot & humid
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0052, 	-- Comfortable
+															at0053, 	-- Uncomfortable
+															at0054]	-- Depressed
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"General wellness">
+					description = <"Recording of general wellness parameters of a person">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Waking time">
+					description = <"Typical wake up time">
+				>
+				["at0005"] = <
+					text = <"4-6 am">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"6-8 am">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"After 10 am">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"8-10 am">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Sleep time">
+					description = <"Typical time to sleep">
+				>
+				["at0010"] = <
+					text = <"Sleep">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"7-9 pm">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"9-11 pm">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"11-12 pm">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"After 12 pm">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Feeling on wake up">
+					description = <"Overall feeling on waking up">
+				>
+				["at0016"] = <
+					text = <"Fresh & rested">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Little tired">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Tired">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Very tired">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Sleep experience">
+					description = <"Overal experience during sleep">
+				>
+				["at0021"] = <
+					text = <"Sound">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Light & interrupted">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Not enough">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Heavy and long">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Difficulty sleeping">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Difficulty waking">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Frequent nightmares">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Wake up too early">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Sleep position">
+					description = <"Typical sleeping position">
+				>
+				["at0030"] = <
+					text = <"On back">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"On stomach">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Left side">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Right side">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Feeling of purpose">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Quality of spiritual life">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Completely">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Somewhat">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Natural">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Purposeless">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Fully satisfied">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Somewhat satisfying">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"No impact">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Empty feeling">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Energy level">
+					description = <"Usual level of energy">
+				>
+				["at0045"] = <
+					text = <"Very high">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"High">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Moderate">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Low">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Very low">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Climate impact">
+					description = <"Impactof different climate conditions on the overall wellbeing">
+				>
+				["at0051"] = <
+					text = <"Cold">
+					description = <"Impact of cold climate in overall wellbeing">
+				>
+				["at0052"] = <
+					text = <"Comfortable">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Uncomfortable">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Depressed">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Hot">
+					description = <"Impact of hot climate in overall wellbeing">
+				>
+				["at0056"] = <
+					text = <"Cool & damp">
+					description = <"Impact of cool & damp climate in overall wellbeing">
+				>
+				["at0057"] = <
+					text = <"Hot & humid">
+					description = <"Impact of hot & humid climate in overall wellbeing">
+				>
+			>
+		>
+	>

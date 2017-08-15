@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>e89fa2ed-e430-4bdf-a83f-6a4db1041acc</id>
+  <name>Admit and discharge details</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.review.v1" concept_name="Review">
+    <Content xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.admission-extended.v1" concept_name="Extended admission" path="/content">
+      <Rule path="/data[at0001]/items[at0094]" max="0" />
+      <Rule path="/data[at0001]/items[at0025]" max="0" />
+      <Rule path="/data[at0001]/items[at0051]" max="0" />
+      <Rule path="/data[at0001]/items[at0061.1]">
+        <constraint xsi:type="textConstraint">
+          <excludedValues>local::at0065</excludedValues>
+          <excludedValues>local::at0122</excludedValues>
+          <excludedValues>local::at0123</excludedValues>
+          <excludedValues>local::at0124</excludedValues>
+          <excludedValues>local::at0125</excludedValues>
+          <excludedValues>local::at0126</excludedValues>
+          <excludedValues>local::at0128</excludedValues>
+          <excludedValues>local::at0130</excludedValues>
+        </constraint>
+      </Rule>
+    </Content>
+    <Context />
+  </definition>
+</template>

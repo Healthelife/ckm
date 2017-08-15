@@ -1,0 +1,122 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.child_nutrition_status.v0
+
+concept
+	[at0000]	-- Child nutrition status
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-25">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Record the nutrition status of a child">
+			use = <"">
+			keywords = <"nutrition", "children", "">
+			misuse = <"">
+			copyright = <"@Healthelife ventures">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Dileep V S, Healthelife Ventures LLP<dileep@healthelife.in>">
+		["MD5-CAM-1.0.1"] = <"CDAE2C18AB563D086C6858547BCD7942">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Child nutrition status
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Age
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::128]>
+												list = <
+													["1"] = <
+														units = <"d">
+													>
+													["2"] = <
+														units = <"mo">
+													>
+													["3"] = <
+														units = <"a">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Nutrition status
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0007, 	-- SAM
+													at0008, 	-- MAN
+													at0009]	-- Normal
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Child nutrition status">
+					description = <"Record the nutrition status of a child">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Age">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Nutrition status">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"SAM">
+					description = <"Severely malnourished">
+				>
+				["at0008"] = <
+					text = <"MAN">
+					description = <"Medium malnourished">
+				>
+				["at0009"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+			>
+		>
+	>

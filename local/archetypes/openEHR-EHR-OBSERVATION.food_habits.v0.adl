@@ -1,0 +1,389 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.food_habits.v0
+
+concept
+	[at0000]	-- Food habits
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Captur the food habits and preferences of a person at any point of time">
+			use = <"">
+			keywords = <"food", "nutrition", "taste">
+			misuse = <"Record food recomendations for any period of time">
+			copyright = <"@Healthelife ventures">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"843FF3FF3AA94032C6A17822046A8AF7">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Food habits
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0021] occurrences matches {0..1} matches {	-- Typical daily meal
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0022] occurrences matches {0..1} matches {	-- Breakfast
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0023] occurrences matches {0..1} matches {	-- Lunch
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0024] occurrences matches {0..1} matches {	-- Dinner
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0025] occurrences matches {0..1} matches {	-- Snacks
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									ELEMENT[at0042] occurrences matches {0..1} matches {	-- Diet preference
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0043, 	-- Vegan
+													at0044, 	-- Lacto-vegetarian
+													at0045, 	-- Lacto-ovo-vegetarian
+													at0046, 	-- Non-vegetarian
+													at0047]	-- Zero carb
+												}
+											}
+										}
+									}
+									ELEMENT[at0029] occurrences matches {0..1} matches {	-- Daily main meal
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0030, 	-- Breakfast
+													at0031, 	-- Lunch
+													at0032]	-- Dinner
+												}
+											}
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {	-- Daily water intake
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0034, 	-- 1-2 glasses
+													at0035, 	-- 3-4 glasses
+													at0036, 	-- 5-6 glasses
+													at0037]	-- 7+ glasses
+												}
+											}
+										}
+									}
+									ELEMENT[at0048] occurrences matches {0..1} matches {	-- Eating behaviour
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0049, 	-- Eat with full attention
+													at0050, 	-- Talk while eating
+													at0051, 	-- Eat quickly
+													at0052, 	-- Watch television
+													at0053]	-- Eat on-the-go
+												}
+											}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {	-- Meal timing
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0027, 	-- Regular
+													at0028]	-- Irregular
+												}
+											}
+										}
+									}
+									ELEMENT[at0065] occurrences matches {0..1} matches {	-- Take food between meals
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0054] occurrences matches {0..7} matches {	-- Taste preferences
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0055, 	-- Sweet
+													at0056, 	-- Salty
+													at0057, 	-- Sour
+													at0058, 	-- Bitter
+													at0059, 	-- Hot/spicy
+													at0060, 	-- Starchy
+													at0061]	-- Oily
+												}
+											}
+										}
+									}
+									ELEMENT[at0062] occurrences matches {0..6} matches {	-- Taste dislikes
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0055, 	-- Sweet
+													at0056, 	-- Salty
+													at0057, 	-- Sour
+													at0058, 	-- Bitter
+													at0063, 	-- Dairy/cheese
+													at0064]	-- Astrigent
+												}
+											}
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {	-- Quality of digestion
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0039, 	-- Good
+													at0040, 	-- Fair
+													at0041]	-- Bad
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Food habits">
+					description = <"Record the food habits of a  person at any point of time">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0021"] = <
+					text = <"Typical daily meal">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Breakfast">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Lunch">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Dinner">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Snacks">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Meal timing">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Regular">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Irregular">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Daily main meal">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Breakfast">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Lunch">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Dinner">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Daily water intake">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"1-2 glasses">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"3-4 glasses">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"5-6 glasses">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"7+ glasses">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Quality of digestion">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Good">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Fair">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Bad">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Diet preference">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Vegan">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Lacto-vegetarian">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Lacto-ovo-vegetarian">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Non-vegetarian">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Zero carb">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Eating behaviour">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Eat with full attention">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Talk while eating">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Eat quickly">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Watch television">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Eat on-the-go">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Taste preferences">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Sweet">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Salty">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Sour">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"Bitter">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Hot/spicy">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Starchy">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Oily">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Taste dislikes">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Dairy/cheese">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Astrigent">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"Take food between meals">
+					description = <"*">
+				>
+			>
+		>
+	>

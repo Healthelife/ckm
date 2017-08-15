@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>aff6f375-4c94-42b6-a3da-3cd1e51514f3</id>
+  <name>EHRN Substance use.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.substance_use.v1" concept_name="Substance use">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.current_substance_use.v0" concept_name="Current substance use" path="/content">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.substance_use-tobacco-all_forms.v0" concept_name="Tobacco use all forms" path="/items">
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0012]">
+          <constraint xsi:type="multipleConstraint">
+            <includedTypes>Quantity</includedTypes>
+            <includedTypes>Count</includedTypes>
+          </constraint>
+        </Rule>
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.substance_use-caffeine.v1" concept_name="Caffeine consumption" path="/items">
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0.25]/items[at0012]" max="1">
+          <constraint xsi:type="multipleConstraint">
+            <includedTypes>Quantity</includedTypes>
+          </constraint>
+        </Rule>
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.substance_use-alcohol.v1" concept_name="Alcohol Consumption" path="/items">
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0012]" max="1">
+          <constraint xsi:type="multipleConstraint">
+            <includedTypes>Quantity</includedTypes>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0012.1]">
+          <constraint xsi:type="quantityConstraint">
+            <excludedUnits>/h</excludedUnits>
+          </constraint>
+        </Rule>
+      </Item>
+    </Content>
+    <Context />
+  </definition>
+</template>

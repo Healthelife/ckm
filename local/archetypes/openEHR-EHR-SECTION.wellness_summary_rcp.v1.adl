@@ -1,0 +1,45 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.wellness_summary_rcp.v1
+
+concept
+	[at0000]	-- Wellness Summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Review of the general wellness status of an individual. Includes general review of sleep, bowel movements, general feeling, energy level, mental satisfaction etc.">
+			use = <"">
+			keywords = <"wellness", "sleep", "bowel movements", "routine", "feeling">
+			misuse = <"Do not use to record any instance of a particular activity covered ">
+			copyright = <"© Healthelife ventures">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Dileep V S, Healthelife Ventures LLP<dileep@healthelife.in>">
+		["MD5-CAM-1.0.1"] = <"3E82FFB77F705FDDE69AB798FF1BDF0A">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Wellness Summary">
+					description = <"Wellness summary heading.">
+				>
+			>
+		>
+	>

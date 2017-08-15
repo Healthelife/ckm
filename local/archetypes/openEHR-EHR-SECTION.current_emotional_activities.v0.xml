@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.openehr.org/v1">
+  <original_language>
+    <terminology_id>
+      <value>ISO_639-1</value>
+    </terminology_id>
+    <code_string>en</code_string>
+  </original_language>
+  <description>
+    <original_author id="name">Dileep V S</original_author>
+    <original_author id="email">dileep@healthelife.in</original_author>
+    <original_author id="date">2017-07-04</original_author>
+    <original_author id="organisation">Healthelife Ventures LLP</original_author>
+    <lifecycle_state>AuthorDraft</lifecycle_state>
+    <other_details id="references">
+</other_details>
+    <other_details id="current_contact">Dileep V S, Healthelife Ventures LLP&lt;dileep@healthelife.in&gt;</other_details>
+    <other_details id="MD5-CAM-1.0.1">297AF82D87AF387B1FB136A38E04D69D</other_details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>en</code_string>
+      </language>
+      <purpose>To organise Current emotional health activities of a person</purpose>
+      <use />
+      <misuse />
+      <copyright>© Healthelife ventures</copyright>
+    </details>
+  </description>
+  <archetype_id>
+    <value>openEHR-EHR-SECTION.current_emotional_activities.v0</value>
+  </archetype_id>
+  <adl_version>1.4</adl_version>
+  <concept>at0000</concept>
+  <definition>
+    <rm_type_name>SECTION</rm_type_name>
+    <occurrences>
+      <lower_included>true</lower_included>
+      <upper_included>true</upper_included>
+      <lower_unbounded>false</lower_unbounded>
+      <upper_unbounded>false</upper_unbounded>
+      <lower>1</lower>
+      <upper>1</upper>
+    </occurrences>
+    <node_id>at0000</node_id>
+  </definition>
+  <ontology>
+    <term_definitions language="en">
+      <items code="at0000">
+        <items id="text">Current emotional activities</items>
+        <items id="description">Current emotional health activities of a person</items>
+      </items>
+    </term_definitions>
+  </ontology>
+</archetype>

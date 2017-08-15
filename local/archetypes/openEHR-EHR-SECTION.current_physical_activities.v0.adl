@@ -1,0 +1,46 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.current_physical_activities.v0
+
+concept
+	[at0000]	-- Current physical activities
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Current physical activities of a person">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Healthelife ventures">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"
+">
+		["current_contact"] = <"Dileep V S, Healthelife Ventures LLP<dileep@healthelife.in>">
+		["MD5-CAM-1.0.1"] = <"72BC9C84B7125FC93FF88CEC8FE3BCC2">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Current physical activities">
+					description = <"Current physical activities of a person">
+				>
+			>
+		>
+	>

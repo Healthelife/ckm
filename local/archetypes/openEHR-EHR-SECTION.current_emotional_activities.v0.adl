@@ -1,0 +1,46 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.current_emotional_activities.v0
+
+concept
+	[at0000]	-- Current emotional activities
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Current emotional health activities of a person">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Healthelife ventures">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"
+">
+		["current_contact"] = <"Dileep V S, Healthelife Ventures LLP<dileep@healthelife.in>">
+		["MD5-CAM-1.0.1"] = <"297AF82D87AF387B1FB136A38E04D69D">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Current emotional activities">
+					description = <"Current emotional health activities of a person">
+				>
+			>
+		>
+	>

@@ -1,0 +1,392 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.bristol_stool_scale-bowel_movements.v0
+specialize
+	openEHR-EHR-OBSERVATION.bristol_stool_scale.v1
+
+concept
+	[at0000.1]	-- Bowel movements
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dileep V S">
+		["email"] = <"dileep@healthelife.in">
+		["organisation"] = <"Healthelife Ventures LLP">
+		["date"] = <"2017-07-05">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"*To record a classification of characteristics of faeces after defaecation, according to the Bristol Stool Scale/Score, sometimes termed the 'Meyers' score.(en)">
+			use = <"*To record a classification of characteristics of faeces according to the Bristol Stool Scale/Score.(en)">
+			keywords = <"*stool(en)", "*faeces(en)", "*Bristol(en)", "*Meyers(en)">
+			misuse = <"*(en)">
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"To record a classification of characteristics of faeces according to the Bristol Stool Scale/Score.">
+			keywords = <"stool", "faeces", "Bristol", "Meyers">
+			misuse = <"">
+			copyright = <"© Healthelife foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"http://en.wikipedia.org/wiki/Bristol_stool_scale
+Lewis SJ, Heaton KW (1997). \"Stool form scale as a useful guide to intestinal transit time\". Scand. J. Gastroenterol. 32 (9): 920–4.">
+		["current_contact"] = <"Dileep V S, Healthelife Ventures LLP<dileep@healthelife.in>">
+		["MD5-CAM-1.0.1"] = <"714B23AACFBBBA7BE71D82890A4C2798">
+	>
+
+definition
+	OBSERVATION[at0000.1] matches {	-- Bowel movements
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0.15] occurrences matches {0..1} matches {	-- Frequency
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.16, 	-- Every 2-3 days
+													at0.17, 	-- Daily
+													at0.18]	-- 2-3 times per day
+												}
+											}
+										}
+									}
+									ELEMENT[at0.19] occurrences matches {0..1} matches {	-- Timing
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.20, 	-- Early morning
+													at0.21, 	-- Late in the day
+													at0.22, 	-- After meals
+													at0.23, 	-- After dinner
+													at0.24]	-- Need laxative
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0005.1] occurrences matches {0..1} matches {	-- Nature of stool
+										value matches {
+											1|[local::at0006], 	-- Separate hard lumps
+											2|[local::at0007], 	-- Lumpy and sausage like
+											3|[local::at0008], 	-- Sausage shape with cracks on its surface
+											4|[local::at0009], 	-- Like a smooth, soft sausage or snake
+											5|[local::at0010], 	-- Soft blobs with clear cut edges
+											6|[local::at0011], 	-- Mushy consistency with ragged edges
+											7|[local::at0012]  	-- Watery, no solid pieces. 
+										}
+									}
+									ELEMENT[at0.25] occurrences matches {0..1} matches {	-- Associated problems
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.26, 	-- Pain
+													at0.27, 	-- Blood
+													at0.28, 	-- Mucous
+													at0.29]	-- Foul smell
+												}
+											}
+										}
+									}
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.15"] = <
+					text = <"Frequency">
+					description = <"Normal frequency of bowel movements">
+				>
+				["at0.16"] = <
+					text = <"Every 2-3 days">
+					description = <"*">
+				>
+				["at0.17"] = <
+					text = <"Daily">
+					description = <"*">
+				>
+				["at0.18"] = <
+					text = <"2-3 times per day">
+					description = <"*">
+				>
+				["at0.19"] = <
+					text = <"Timing">
+					description = <"Typical time of your bowel movements">
+				>
+				["at0.20"] = <
+					text = <"Early morning">
+					description = <"*">
+				>
+				["at0.21"] = <
+					text = <"Late in the day">
+					description = <"*">
+				>
+				["at0.22"] = <
+					text = <"After meals">
+					description = <"*">
+				>
+				["at0.23"] = <
+					text = <"After dinner">
+					description = <"*">
+				>
+				["at0.24"] = <
+					text = <"Need laxative">
+					description = <"*">
+				>
+				["at0.25"] = <
+					text = <"Associated problems">
+					description = <"*">
+				>
+				["at0.26"] = <
+					text = <"Pain">
+					description = <"*">
+				>
+				["at0.27"] = <
+					text = <"Blood">
+					description = <"*">
+				>
+				["at0.28"] = <
+					text = <"Mucous">
+					description = <"*">
+				>
+				["at0.29"] = <
+					text = <"Foul smell">
+					description = <"*">
+				>
+				["at0000"] = <
+					text = <"Bristol stool scale">
+					description = <"Classification of faeces characteristics according to the Bristol Stool Scale/Score.">
+				>
+				["at0000.1"] = <
+					text = <"Bowel movements">
+					description = <"Recording of bowel movement details according to the Bristol Stool Scale/Score.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"The result at a single point in time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Comment">
+					description = <"Any additional comment about the scale result.">
+				>
+				["at0005"] = <
+					text = <"Bristol Stool scale">
+					description = <"A score to assess the characteristics of faeces after defaecation.">
+				>
+				["at0005.1"] = <
+					text = <"Nature of stool">
+					description = <"A score to assess the characteristics of faeces and possible indications">
+				>
+				["at0006"] = <
+					text = <"Separate hard lumps">
+					description = <"Very consipated">
+				>
+				["at0007"] = <
+					text = <"Lumpy and sausage like">
+					description = <"Slightly constipated">
+				>
+				["at0008"] = <
+					text = <"Sausage shape with cracks on its surface">
+					description = <"Normal">
+				>
+				["at0009"] = <
+					text = <"Like a smooth, soft sausage or snake">
+					description = <"Normal">
+				>
+				["at0010"] = <
+					text = <"Soft blobs with clear cut edges">
+					description = <"Lacking fibre">
+				>
+				["at0011"] = <
+					text = <"Mushy consistency with ragged edges">
+					description = <"Inflammation">
+				>
+				["at0012"] = <
+					text = <"Watery, no solid pieces. ">
+					description = <"Inflammation">
+				>
+				["at0013"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Confounding factors">
+					description = <"Factors of patient state which may effect interpretation of the results.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.15"] = <
+					text = <"*Frequency(en)">
+					description = <"*Normal frequency of bowel movements(en)">
+				>
+				["at0.16"] = <
+					text = <"*Every 2-3 days(en)">
+					description = <"**(en)">
+				>
+				["at0.17"] = <
+					text = <"*Daily(en)">
+					description = <"**(en)">
+				>
+				["at0.18"] = <
+					text = <"*2-3 times per day(en)">
+					description = <"**(en)">
+				>
+				["at0.19"] = <
+					text = <"*Timing(en)">
+					description = <"*Typical time of your bowel movements(en)">
+				>
+				["at0.20"] = <
+					text = <"*Early morning(en)">
+					description = <"**(en)">
+				>
+				["at0.21"] = <
+					text = <"*Late in the day(en)">
+					description = <"**(en)">
+				>
+				["at0.22"] = <
+					text = <"*After meals(en)">
+					description = <"**(en)">
+				>
+				["at0.23"] = <
+					text = <"*After dinner(en)">
+					description = <"**(en)">
+				>
+				["at0.24"] = <
+					text = <"*Need laxative(en)">
+					description = <"**(en)">
+				>
+				["at0.25"] = <
+					text = <"*Associated problems(en)">
+					description = <"**(en)">
+				>
+				["at0.26"] = <
+					text = <"*Pain(en)">
+					description = <"**(en)">
+				>
+				["at0.27"] = <
+					text = <"*Blood(en)">
+					description = <"**(en)">
+				>
+				["at0.28"] = <
+					text = <"*Mucous(en)">
+					description = <"**(en)">
+				>
+				["at0.29"] = <
+					text = <"*Foul smell(en)">
+					description = <"**(en)">
+				>
+				["at0000"] = <
+					text = <"Lestvica Bristol">
+					description = <"*Classification of faeces characteristics according to the Bristol Stool Score(en)">
+				>
+				["at0000.1"] = <
+					text = <"*Bowel movements(en)">
+					description = <"*Recording of bowel movement details according to the Bristol Stool Scale/Score.(en)">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*The result at a single point in time.(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"*Comment(en)">
+					description = <"*Any additional comment about the scale result. (en)">
+				>
+				["at0005"] = <
+					text = <"Lestvica Bristol">
+					description = <"*A score to assess the characteristics of faeces after defaecation.(en)">
+				>
+				["at0005.1"] = <
+					text = <"*Nature of stool(en)">
+					description = <"*A score to assess the characteristics of faeces and possible indications(en)">
+				>
+				["at0006"] = <
+					text = <"*Separate hard lumps(en)">
+					description = <"*Very consipated(en)">
+				>
+				["at0007"] = <
+					text = <"*Lumpy and sausage like(en)">
+					description = <"*Slightly constipated(en)">
+				>
+				["at0008"] = <
+					text = <"*Sausage shape with cracks on its surface(en)">
+					description = <"*Normal(en)">
+				>
+				["at0009"] = <
+					text = <"*Like a smooth, soft sausage or snake(en)">
+					description = <"*Normal(en)">
+				>
+				["at0010"] = <
+					text = <"*Soft blobs with clear cut edges(en)">
+					description = <"*Lacking fibre(en)">
+				>
+				["at0011"] = <
+					text = <"*Mushy consistency with ragged edges(en)">
+					description = <"*Inflammation(en)">
+				>
+				["at0012"] = <
+					text = <"*Watery, no solid pieces. (en)">
+					description = <"*Inflammation(en)">
+				>
+				["at0013"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0014"] = <
+					text = <"*Confounding factors(en)">
+					description = <"*Factors of patient state which may effect interpretation of the results.(en)">
+				>
+			>
+		>
+	>
